@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroReversão 3.0™ — Elimine a Procrastinação em 21 Dias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper:        #F7F3EC;
+    --paper-2:      #EDE8DF;
+    --ink:          #141210;
+    --ink-2:        #1E1B17;
+    --ink-3:        #2A2520;
+    --forest:       #1B4332;
+    --forest-2:     #245741;
+    --green:        #10B981;
+    --green-hover:  #0EA472;
+    --text-ink:     #2C2416;
+    --text-mid:     #5A4A35;
+    --text-muted:   #8B7355;
+    --text-cream:   #F7F3EC;
+    --text-cream-2: #D4C9B8;
+    --text-cream-3: #9C8E7A;
+    --gold:         #C9A96E;
+    --gold-border:  rgba(201,169,110,0.25);
+    --border-cream: rgba(44,36,22,0.12);
+    --border-dark:  rgba(255,255,255,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  /* ── GRAIN TEXTURE OVERLAY ───────────────── */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.032;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--text-ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container       { max-width: 860px;  margin: 0 auto; padding: 0 24px; }
+  .container-wide  { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; }
+
+  /* ── SECTION BACKGROUNDS ─────────────────── */
+  .bg-ink    { background: #141210 !important;    color: var(--text-cream); }
+  .bg-paper  { background: #F7F3EC !important;  color: var(--text-ink); }
+  .bg-paper2 { background: #EDE8DF !important; color: var(--text-ink); }
+  .bg-forest { background: #1B4332 !important; color: var(--text-cream); }
+
+  section { padding: 80px 0; }
+
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .bg-ink    .section-label,
+  .bg-forest .section-label { color: var(--gold); }
+  .bg-paper  .section-label,
+  .bg-paper2 .section-label { color: var(--forest); }
+
+  .section-title {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  .bg-ink    .section-title,
+  .bg-forest .section-title { color: var(--text-cream); }
+  .bg-paper  .section-title,
+  .bg-paper2 .section-title { color: var(--text-ink); }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--green);
+  }
+
+  .section-body { font-size: 17px; max-width: 700px; }
+  .bg-ink    .section-body,
+  .bg-forest .section-body { color: var(--text-cream-2); }
+  .bg-paper  .section-body,
+  .bg-paper2 .section-body { color: var(--text-mid); }
+
+  .divider-line {
+    height: 1px;
+    margin: 48px 0;
+  }
+  .bg-ink    .divider-line,
+  .bg-forest .divider-line { background: var(--border-dark); }
+  .bg-paper  .divider-line,
+  .bg-paper2 .divider-line { background: var(--border-cream); }
+
+  /* ── TOP BAR ─────────────────────────────── */
+  .topbar {
+    background: var(--ink);
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-cream-2);
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .topbar span { color: var(--green); font-weight: 600; }
+
+  /* ── HERO ─────────────────────────────────── */
+  .hero {
+    background: var(--ink);
+    padding: 72px 0 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -160px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(27,67,50,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-pretitle {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,169,110,0.08);
+    border: 1px solid var(--gold-border);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
+    color: var(--text-cream);
+    margin-bottom: 20px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--green);
+  }
+  .hero-subtitle {
+    font-size: clamp(16px, 2.5vw, 19px);
+    color: var(--text-cream-2);
+    max-width: 620px;
+    margin: 0 auto 40px;
+  }
+
+  /* ── VSL ──────────────────────────────────── */
+  .vsl-wrap {
+    max-width: 760px;
+    margin: 0 auto 36px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.55);
+  }
+  .vsl-player {
+    background: #0C0B09;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+  }
+  .vsl-thumb {
+    position: absolute; inset: 0;
+    background: #0E0D0B;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 20px;
+  }
+  .vsl-duration {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-cream-3);
+    letter-spacing: 0.06em;
+  }
+  .play-btn {
+    width: 80px; height: 80px;
+    background: var(--forest);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .play-btn:hover { transform: scale(1.06); background: var(--forest-2); }
+  .play-btn svg { margin-left: 4px; }
+  .vsl-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-cream-2);
+  }
+  .vsl-muted {
+    background: var(--ink-2);
+    border-top: 1px solid var(--border-dark);
+    padding: 16px 24px;
+    text-align: left;
+  }
+  .vsl-muted p {
+    font-size: 13px;
+    color: var(--text-cream-3);
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+  .vsl-muted ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+  .vsl-muted ul li {
+    font-size: 13px;
+    color: var(--text-cream-2);
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .vsl-muted ul li::before { content: '→'; color: var(--green); flex-shrink: 0; }
+
+  /* ── CTA BUTTON ───────────────────────────── */
+  .cta-btn {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(15px, 2vw, 17px);
+    padding: 20px 48px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: transform 0.15s, background 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .cta-btn:hover { transform: translateY(-2px); background: var(--green-hover); }
+  .cta-btn.full { display: block; text-align: center; width: 100%; max-width: 480px; margin: 0 auto; }
+
+  .cta-sub {
+    font-size: 12px;
+    color: var(--text-cream-3);
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+  .cta-sub span { color: var(--green); }
+
+  /* ── PROBLEM SECTION ──────────────────────── */
+  .scenario-box {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-left: 3px solid var(--text-mid);
+    border-radius: 2px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    font-size: 16px;
+    color: var(--text-ink);
+    line-height: 1.9;
+  }
+
+  .cost-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .cost-item {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-radius: 2px;
+    padding: 20px;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .cost-icon { font-size: 22px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+  .cost-item p { font-size: 15px; color: var(--text-mid); }
+  .cost-item strong { color: var(--text-ink); display: block; font-family: 'Montserrat', sans-serif; font-size: 14px; margin-bottom: 4px; }
+
+  .failed-methods { margin: 32px 0; }
+  .failed-methods h3 { font-size: 17px; font-weight: 700; color: var(--text-ink); margin-bottom: 16px; }
+  .failed-list {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    list-style: none;
+  }
+  .failed-list li {
+    background: var(--paper-2);
+    border: 1px solid var(--border-cream);
+    border-radius: 2px;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: var(--text-mid);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .failed-list li::before { content: '✕'; color: #B54A4A; font-size: 11px; }
+
+  .problem-bridge {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-left: 3px solid var(--forest);
+    border-radius: 2px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+  .problem-bridge h3 { font-size: 18px; font-weight: 700; color: var(--text-ink); margin-bottom: 12px; }
+  .problem-bridge p { color: var(--text-mid); font-size: 16px; line-height: 1.8; margin-bottom: 12px; }
+  .problem-bridge p:last-child { margin-bottom: 0; }
+  .problem-bridge strong { color: var(--text-ink); }
+
+  /* ── MECHANISM SECTION (FOREST) ───────────── */
+  .mechanism-hero {
+    padding: 32px 0 24px;
+  }
+  .mechanism-diagram {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 36px;
+    margin: 36px 0;
+  }
+  .mechanism-diagram h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-cream);
+    margin-bottom: 14px;
+  }
+  .mechanism-diagram p { color: var(--text-cream-2); font-size: 16px; line-height: 1.8; margin-bottom: 14px; }
+  .mechanism-diagram p:last-child { margin-bottom: 0; }
+  .mechanism-diagram strong { color: var(--text-cream); }
+
+  .phases-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .phase-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .phase-num {
+    width: 44px; height: 44px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 16px;
+    color: #fff;
+    margin: 0 auto 14px;
+  }
+  .phase-card h4 { font-size: 15px; font-weight: 700; color: var(--text-cream); margin-bottom: 6px; }
+  .phase-card p { font-size: 13px; color: var(--text-cream-2); }
+
+  .mechanism-callout {
+    background: rgba(16,185,129,0.08);
+    border: 1px solid rgba(16,185,129,0.25);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+  .mechanism-callout p { color: var(--text-cream-2); font-size: 16px; line-height: 1.8; margin-bottom: 12px; }
+  .mechanism-callout p:last-child { margin-bottom: 0; }
+  .mechanism-callout strong { color: var(--text-cream); }
+
+  /* ── SOLUTION / VISION SECTION ────────────── */
+  .vision-box {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: 32px 36px;
+    margin: 40px 0;
+  }
+  .vision-box p { color: var(--text-mid); font-size: 17px; line-height: 1.9; margin-bottom: 16px; }
+  .vision-box p:last-child { margin-bottom: 0; }
+  .vision-box strong { color: var(--text-ink); }
+
+  /* ── PROOF / RESEARCH SECTION ─────────────── */
+  .researchers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .researcher-card {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-radius: 2px;
+    padding: 24px;
+  }
+  .researcher-card .uni {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .researcher-card h4 { font-size: 17px; font-weight: 700; color: var(--text-ink); margin-bottom: 8px; }
+  .researcher-card p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+  .recognition-box {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-radius: 2px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+  .recognition-box h3 { font-size: 18px; font-weight: 700; color: var(--text-ink); margin-bottom: 16px; }
+  .recognition-story { font-size: 16px; color: var(--text-mid); font-style: italic; line-height: 1.8; }
+  .recognition-story strong { color: var(--text-ink); font-style: normal; }
+
+  .honesty-box {
+    background: var(--paper-2);
+    border: 1px solid var(--border-cream);
+    border-left: 3px solid var(--forest);
+    border-radius: 2px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+  .honesty-box h3 { font-size: 17px; font-weight: 700; color: var(--text-ink); margin-bottom: 12px; }
+  .honesty-box p { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 12px; }
+  .honesty-box p:last-child { margin-bottom: 0; }
+
+  .timeline-results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .timeline-item {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-radius: 2px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .timeline-item .week {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--forest);
+    margin-bottom: 8px;
+    font-weight: 600;
+    display: block;
+  }
+  .timeline-item p { font-size: 13px; color: var(--text-mid); }
+
+  /* ── MODULES SECTION ──────────────────────── */
+  .module-stack { display: flex; flex-direction: column; gap: 2px; margin: 40px 0; }
+  .module-item {
+    background: var(--ink-2);
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    padding: 28px 32px;
+    display: flex; gap: 24px; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .module-item:hover { border-color: rgba(201,169,110,0.3); }
+  .module-badge {
+    flex-shrink: 0;
+    width: 52px; height: 52px;
+    background: var(--forest);
+    border-radius: 4px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .module-badge .m-num { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; text-transform: uppercase; }
+  .module-badge .m-n { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: #fff; line-height: 1; }
+  .module-content { flex: 1; }
+  .module-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+  .module-period {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.2);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+  .module-time { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-cream-3); }
+  .module-content h3 { font-size: 18px; font-weight: 700; color: var(--text-cream); margin-bottom: 10px; }
+  .module-content ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .module-content ul li { font-size: 14px; color: var(--text-cream-2); padding-left: 20px; position: relative; }
+  .module-content ul li::before { content: '→'; position: absolute; left: 0; color: var(--green); }
+
+  .unlock-schedule {
+    background: var(--ink-2);
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-top: 32px;
+  }
+  .unlock-schedule h3 { font-size: 16px; font-weight: 700; color: var(--text-cream); margin-bottom: 20px; }
+  .unlock-item { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+  .unlock-item:last-child { margin-bottom: 0; }
+  .unlock-badge {
+    flex-shrink: 0;
+    font-family: 'Inter', sans-serif; font-size: 11px;
+    background: rgba(255,255,255,0.06); color: var(--text-cream-2);
+    border: 1px solid var(--border-dark);
+    padding: 4px 12px; border-radius: 2px;
+    letter-spacing: 0.06em; white-space: nowrap;
+    min-width: 110px; text-align: center;
+  }
+  .unlock-badge.green { background: rgba(16,185,129,0.1); color: var(--green); border-color: rgba(16,185,129,0.2); }
+  .unlock-item p { font-size: 14px; color: var(--text-cream-2); }
+
+  /* ── BONUS SECTION ────────────────────────── */
+  .bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 36px 0; }
+  .bonus-card {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-radius: 4px;
+    padding: 28px;
+  }
+  .bonus-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--forest);
+    display: flex; align-items: center; gap: 6px;
+    margin-bottom: 14px;
+  }
+  .bonus-card h3 { font-size: 17px; font-weight: 700; color: var(--text-ink); margin-bottom: 10px; }
+  .bonus-card p { font-size: 14px; color: var(--text-mid); margin-bottom: 14px; line-height: 1.7; }
+  .bonus-card ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .bonus-card ul li { font-size: 13px; color: var(--text-mid); display: flex; align-items: flex-start; gap: 8px; }
+  .bonus-card ul li::before { content: '✓'; color: var(--green); flex-shrink: 0; font-weight: 700; }
+  .bonus-value { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-top: 14px; }
+
+  .summary-box {
+    background: var(--paper-2);
+    border: 1px solid var(--border-cream);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 36px 0;
+  }
+  .summary-box h3 { font-size: 13px; font-weight: 700; color: var(--text-muted); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .summary-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+  .summary-list li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text-mid); }
+  .summary-list li .chk { color: var(--green); font-weight: 700; flex-shrink: 0; font-size: 16px; }
+  .summary-list li .gift { flex-shrink: 0; font-size: 15px; }
+  .summary-list li .meta { color: var(--text-muted); font-size: 13px; margin-left: auto; }
+  .summary-total {
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--border-cream);
+    padding-top: 20px; flex-wrap: wrap; gap: 12px;
+  }
+  .summary-total span:first-child { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 600; color: var(--text-mid); }
+  .summary-total span:last-child  { font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 900; color: var(--text-ink); }
+
+  /* ── GUARANTEE SECTION ────────────────────── */
+  .guarantee-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 4px;
+    padding: 36px;
+    display: flex; gap: 28px; align-items: flex-start;
+  }
+  .guarantee-icon {
+    flex-shrink: 0;
+    width: 72px; height: 72px;
+    background: rgba(16,185,129,0.1);
+    border: 2px solid rgba(16,185,129,0.25);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+  }
+  .guarantee-content h3 { font-size: 22px; font-weight: 700; color: var(--text-cream); margin-bottom: 12px; }
+  .guarantee-content p { font-size: 16px; color: var(--text-cream-2); line-height: 1.8; margin-bottom: 12px; }
+  .guarantee-content p:last-child { margin-bottom: 0; }
+  .guarantee-content strong { color: var(--text-cream); }
+
+  /* ── PRICE SECTION ────────────────────────── */
+  .price-box {
+    background: var(--ink-2);
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    padding: 48px 40px;
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+  }
+  .price-box .price-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-cream-3); margin-bottom: 8px;
+  }
+  .price-old {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: var(--text-cream-3);
+    text-decoration: line-through;
+    margin-bottom: 6px;
+  }
+  .price-main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(52px, 10vw, 68px);
+    font-weight: 900;
+    color: var(--text-cream);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .price-installments { font-size: 15px; color: var(--text-cream-3); margin-bottom: 28px; }
+  .payment-options { display: flex; gap: 10px; justify-content: center; margin: 20px 0 28px; flex-wrap: wrap; }
+  .payment-opt {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border-dark);
+    border-radius: 2px;
+    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-cream-2);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .payment-opt .check { color: var(--green); font-weight: 700; }
+  .trust-badges { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+  .trust-badge { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-cream-2); display: flex; align-items: center; gap: 6px; }
+
+  /* ── INACTION / CALCULATOR ────────────────── */
+  .inaction-calc {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-left: 3px solid #B54A4A;
+    border-radius: 2px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+  .inaction-calc h3 { font-size: 18px; font-weight: 700; color: var(--text-ink); margin-bottom: 16px; }
+  .calc-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid var(--border-cream);
+    font-size: 15px;
+  }
+  .calc-row:last-child { border-bottom: none; }
+  .calc-row .label { color: var(--text-mid); }
+  .calc-row .value { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #B54A4A; }
+  .calc-row .value.green { color: var(--green); }
+
+  /* ── FAQ ──────────────────────────────────── */
+  .faq-list { display: flex; flex-direction: column; gap: 2px; margin: 36px 0; }
+  .faq-item {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 20px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-ink);
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+    user-select: none;
+  }
+  .faq-q .faq-icon { color: var(--forest); font-size: 22px; font-weight: 300; flex-shrink: 0; transition: transform 0.2s; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a {
+    padding: 0 24px;
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+
+  /* ── FORK / CLOSING ───────────────────────── */
+  .fork-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; }
+  .fork-card {
+    background: var(--ink-2);
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    padding: 28px;
+  }
+  .fork-card.bad  { border-color: rgba(181,74,74,0.25); }
+  .fork-card.good { background: var(--forest); border-color: rgba(16,185,129,0.2); }
+  .fork-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+  .fork-card.bad  h3 { color: #E07070; }
+  .fork-card.good h3 { color: var(--green); }
+  .fork-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .fork-card ul li { font-size: 14px; color: var(--text-cream-2); display: flex; gap: 10px; }
+  .fork-card.bad  ul li::before { content: '✕'; color: #E07070; flex-shrink: 0; }
+  .fork-card.good ul li::before { content: '✓'; color: var(--green); flex-shrink: 0; }
+
+  .vision-final {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-dark);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: 36px;
+    margin: 40px 0;
+  }
+  .vision-final p { font-size: 17px; color: var(--text-cream-2); line-height: 1.9; margin-bottom: 16px; }
+  .vision-final p:last-child { margin-bottom: 0; }
+  .vision-final strong { color: var(--text-cream); }
+
+  .final-cta-block { text-align: center; margin-top: 48px; }
+  .final-cta-block .cta-btn { font-size: 18px; padding: 22px 56px; }
+
+  .ps-block { margin-top: 36px; padding: 0 24px; }
+  .ps-block p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-style: italic;
+    color: var(--text-cream-3); margin-bottom: 10px;
+    max-width: 600px; margin-left: auto; margin-right: auto;
+    text-align: center; line-height: 1.7;
+  }
+
+  /* ── "ABOUT PROTOCOL" SECTION ─────────────── */
+  .protocol-box {
+    background: #fff;
+    border: 1px solid var(--border-cream);
+    border-left: 3px solid var(--forest);
+    border-radius: 2px;
+    padding: 32px 36px;
+    margin: 32px 0;
+  }
+  .protocol-box h3 { font-size: 18px; font-weight: 700; color: var(--text-ink); margin-bottom: 12px; }
+  .protocol-box p { color: var(--text-mid); font-size: 16px; line-height: 1.8; margin-bottom: 12px; }
+  .protocol-box p:last-child { margin-bottom: 0; }
+  .protocol-box strong { color: var(--text-ink); }
+
+  /* ── FOOTER ───────────────────────────────── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid var(--border-dark);
+    padding: 32px 0;
+    text-align: center;
+  }
+  footer p { font-size: 12px; color: var(--text-cream-3); margin-bottom: 6px; }
+  footer a { color: var(--text-cream-3); text-decoration: none; }
+  footer a:hover { color: var(--text-cream-2); }
+
+  /* ── STICKY CTA BAR ───────────────────────── */
+  .sticky-cta {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--ink-2);
+    border-top: 1px solid var(--border-dark);
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+    z-index: 1000;
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.35);
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .sticky-cta.visible { transform: translateY(0); }
+  .sticky-cta p { font-size: 14px; color: var(--text-cream-2); display: flex; align-items: center; gap: 8px; }
+  .sticky-cta p strong { color: var(--text-cream); font-family: 'Montserrat', sans-serif; }
+  .sticky-cta .cta-btn { padding: 13px 32px; font-size: 14px; white-space: nowrap; }
+
+  /* ── MOBILE ───────────────────────────────── */
+  @media (max-width: 680px) {
+    section { padding: 56px 0; }
+    .cost-grid, .phases-row, .researchers,
+    .bonus-grid, .fork-grid { grid-template-columns: 1fr; }
+    .timeline-results { grid-template-columns: 1fr 1fr; }
+    .vsl-muted ul { grid-template-columns: 1fr; }
+    .guarantee-box { flex-direction: column; }
+    .module-item { flex-direction: column; }
+    .price-box { padding: 36px 24px; }
+    .sticky-cta { flex-direction: column; gap: 10px; }
+    .sticky-cta p { text-align: center; }
+    .summary-list li .meta { display: none; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>🔒 Garantia de 21 Dias</span> &nbsp;·&nbsp; Resultado real ou 100% de volta. Você fica com todo o material.
+</div>
+
+<!-- ══════════════════════════════════════════
+     FOLD 1 — HERO + VSL
+═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-pretitle">Protocolo Neurociência Comportamental</span>
+    <h1>Como Profissionais Estão Eliminando a Procrastinação Crônica em 21 Dias Usando o<br><em>'Protocolo NeuroReversão 3.0'</em></h1>
+    <p class="hero-subtitle">Sem força de vontade. Sem truques de produtividade. Direto no circuito que causa o problema.</p>
+
+    <div class="vsl-wrap">
+      <div class="vsl-player">
+        <iframe
+          src="https://www.youtube.com/embed/_oKWEeFU118?rel=0&modestbranding=1"
+          title="NeuroReversão 3.0™"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;">
+        </iframe>
+      </div>
+      <div class="vsl-muted">
+        <p>🔊 Ligue o som. Se preferir ler, continue descendo — a página cobre tudo.</p>
+        <ul>
+          <li>Por que força de vontade nunca funcionou — e nunca vai funcionar</li>
+          <li>O desequilíbrio dopaminérgico que mantém seu cérebro travado em tarefas importantes</li>
+          <li>Por que você procrastina exatamente o que mais importa — e por que isso não é preguiça</li>
+          <li>Como corrigir esse desequilíbrio em 21 dias com 15 minutos por dia</li>
+          <li>O protocolo de 4 módulos que instala execução como resposta automática</li>
+          <li>Por que a garantia de 21 dias existe — e o que isso diz sobre o protocolo</li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="https://pay.kiwify.com.br/2K71xCm" class="cta-btn" target="_blank">COMEÇAR OS 21 DIAS AGORA</a>
+    <p class="cta-sub" style="color:var(--text-cream-3);"><span>🔒 Garantia de 21 Dias</span> — Resultado real ou 100% de volta</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 2 — PROBLEMA
+═══════════════════════════════════════════ -->
+<section class="bg-paper">
+  <div class="container">
+    <span class="section-label">O problema real</span>
+    <h2 class="section-title">A Verdade Oculta Sobre Por Que Você Não Consegue Parar de Procrastinar</h2>
+
+    <div class="scenario-box">
+      <p>É segunda-feira de manhã. Você abre a agenda e vê aquela tarefa importante que já deveria ter feito na semana passada. Seu estômago se contrai. Você pensa: <strong>"Hoje vai ser diferente."</strong></p>
+      <br>
+      <p>Mas às 10h você está "organizando emails". Ao meio-dia, "pesquisando informações". Às 15h, "em reuniões urgentes".</p>
+      <br>
+      <p>Quando chega em casa às 20h, mais um dia se passou. Mais uma promessa quebrada. Mais uma noite de culpa e vergonha.</p>
+    </div>
+
+    <p style="color:var(--text-mid); margin-bottom:28px;">Cada dia que você adia, não está apenas perdendo produtividade. Você está pagando um custo real — em múltiplas dimensões:</p>
+
+    <div class="cost-grid">
+      <div class="cost-item">
+        <div class="cost-icon">😶</div>
+        <div><strong>Credibilidade silenciosa</strong><p>Seus colegas começam a questionar sua confiabilidade sem dizer nada em voz alta.</p></div>
+      </div>
+      <div class="cost-item">
+        <div class="cost-icon">🎯</div>
+        <div><strong>Oportunidades que somem</strong><p>Projetos importantes vão para quem executa, não para quem "vai fazer logo".</p></div>
+      </div>
+      <div class="cost-item">
+        <div class="cost-icon">📉</div>
+        <div><strong>Autoestima corroída</strong><p>A culpa constante destrói sua confiança de dentro para fora, semana a semana.</p></div>
+      </div>
+      <div class="cost-item">
+        <div class="cost-icon">💸</div>
+        <div><strong>Dinheiro que não vem</strong><p>Promoções, contratos e aumentos vão para quem entrega resultados consistentes.</p></div>
+      </div>
+    </div>
+
+    <div class="failed-methods">
+      <h3>As "soluções" que falharam com você:</h3>
+      <ul class="failed-list">
+        <li>Listas de tarefas</li>
+        <li>Técnica Pomodoro</li>
+        <li>Aplicativos de produtividade</li>
+        <li>Acordar às 5h</li>
+        <li>"Mais disciplina"</li>
+        <li>Livros de autoajuda</li>
+        <li>Coaching motivacional</li>
+        <li>Planilhas de hábitos</li>
+      </ul>
+    </div>
+
+    <div class="problem-bridge">
+      <h3>Por que nada funcionou?</h3>
+      <p>Porque você está tentando resolver um problema neurológico com força de vontade. É como tentar curar pressão alta com "mais calma" — você está tratando o sintoma, não a causa.</p>
+      <p>A procrastinação crônica não é fraqueza de caráter. <strong>É um desequilíbrio específico nos seus circuitos dopaminérgicos</strong> — e existe um protocolo para corrigi-lo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 3 — O MECANISMO (seção dedicada)
+═══════════════════════════════════════════ -->
+<section class="bg-forest" id="mecanismo">
+  <div class="container">
+    <span class="section-label">A causa raiz</span>
+    <h2 class="section-title">Por Que Isso Acontece — O Mecanismo Real</h2>
+
+    <p style="color:var(--text-cream-2); margin-bottom:20px;">Durante anos, pesquisadores de neurociência comportamental estudaram um padrão específico.</p>
+    <p style="color:var(--text-cream-2); margin-bottom:20px;">Profissionais competentes. Inteligentes. Ambiciosos.</p>
+    <p style="color:var(--text-cream); font-family:'Montserrat',sans-serif; font-weight:700; font-size:22px; margin-bottom:28px;">Completamente travados.</p>
+
+    <p style="color:var(--text-cream-2); margin-bottom:12px;">A descoberta foi reveladora: não era preguiça. Não era falta de disciplina.</p>
+    <p style="color:var(--text-cream-2); margin-bottom:32px;">Era um desequilíbrio neuroquímico mensurável nos circuitos de recompensa do <strong style="color:var(--text-cream)">seu</strong> cérebro.</p>
+
+    <div class="mechanism-diagram">
+      <h3>O Mecanismo</h3>
+      <p>Seu cérebro possui vias dopaminérgicas que determinam o que você considera "recompensador". Em procrastinadores crônicos, essas vias estão "sequestradas" por distrações de gratificação imediata — redes sociais, notificações, tarefas fáceis.</p>
+      <p>Resultado: seu cérebro literalmente associa tarefas importantes com desconforto, e distrações com prazer. Não importa o quanto você "queira" ser produtivo — <strong>está lutando contra sua própria neuroquímica.</strong></p>
+    </div>
+
+    <p style="color:var(--text-cream); font-family:'Montserrat',sans-serif; font-weight:700; font-size:20px; margin: 36px 0 20px;">O Protocolo NeuroReversão 3.0™ corrige isso em 3 fases:</p>
+
+    <div class="phases-row">
+      <div class="phase-card">
+        <div class="phase-num">1</div>
+        <h4>Detox Neural</h4>
+        <p>Dias 1–7<br>Neutraliza os circuitos viciados</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">2</div>
+        <h4>Reconstrução Dopaminérgica</h4>
+        <p>Dias 8–14<br>Reconstrói as vias de recompensa</p>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">3</div>
+        <h4>Instalação de Automatismos</h4>
+        <p>Dias 15–21<br>Torna execução automática</p>
+      </div>
+    </div>
+
+    <div class="mechanism-callout">
+      <p>Este é o único tipo de intervenção que funciona para procrastinação crônica: <strong>atuar diretamente no sistema dopaminérgico</strong>, não na motivação ou na disciplina.</p>
+      <p>Motivação é temporária. Disciplina exige esforço. Neuroquímica recalibrada é permanente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 4 — VISÃO DO DEPOIS
+═══════════════════════════════════════════ -->
+<section class="bg-paper">
+  <div class="container">
+    <span class="section-label">A transformação</span>
+    <h2 class="section-title">Como Fica a Sua Vida Quando o Circuito Muda</h2>
+
+    <div class="vision-box">
+      <p>Imagine acordar numa segunda-feira sem aquela sensação familiar de peso no peito. Não porque os projetos desapareceram. Não porque a agenda ficou mais leve. Mas porque, pela primeira vez, <strong>seu cérebro não está lutando contra você.</strong></p>
+      <p>Você abre o computador. Vai direto para o que importa — não por disciplina, não por força de vontade. Simplesmente porque seu circuito agora aponta nessa direção.</p>
+      <p>Às 11h, você terminou a tarefa que ficava na lista há três semanas. Sem drama. Sem negociação interna.</p>
+      <p>No final da tarde, você fecha o computador sabendo exatamente o que entregou. <strong>Sem aquela culpa sutil que costumava te acompanhar para casa.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 5 — A CIÊNCIA
+═══════════════════════════════════════════ -->
+<section class="bg-paper2">
+  <div class="container">
+    <span class="section-label">A ciência por trás</span>
+    <h2 class="section-title">A Neurociência Por Trás da Transformação</h2>
+
+    <div class="researchers">
+      <div class="researcher-card">
+        <div class="uni">Universidade de Cambridge</div>
+        <h4>Wolfram Schultz</h4>
+        <p>Documentou como o sistema de recompensa do cérebro aprende a antecipar e buscar estímulos — e como esse padrão pode ser alterado através de substituição sistemática de recompensas.</p>
+      </div>
+      <div class="researcher-card">
+        <div class="uni">Universidade de Michigan</div>
+        <h4>Kent Berridge</h4>
+        <p>Demonstrou como circuitos dopaminérgicos podem ser recalibrados através de sequências específicas de comportamento e recompensa — base do Módulo 2 do protocolo.</p>
+      </div>
+    </div>
+
+    <p style="color:var(--text-mid); font-size:15px; line-height:1.8; margin-bottom:28px;">Os mecanismos estudados por Schultz e Berridge — como o sistema dopaminérgico aprende, vicía e pode ser revertido — são a fundação científica dos 3 protocolos do NeuroReversão 3.0™. Não é metáfora. É o mecanismo documentado, aplicado como sequência de recalibração.</p>
+
+    <div class="recognition-box">
+      <h3>Você não precisa acreditar em mim. Precisa reconhecer o que já viveu.</h3>
+      <p class="recognition-story">Você já abriu o Instagram <strong>"por 5 minutos"</strong> e percebeu 40 minutos depois que ainda estava lá — sem querer, sem decidir continuar?</p>
+      <br>
+      <p class="recognition-story">Isso não é fraqueza. É o seu sistema dopaminérgico funcionando exatamente como descrito: ele encontrou uma fonte de recompensa imediata e repetiu o comportamento automaticamente. Sem esforço consciente. Sem decisão.</p>
+      <br>
+      <p class="recognition-story"><strong>O mesmo mecanismo — direcionado para o lado oposto — é o que o protocolo instala.</strong></p>
+    </div>
+
+    <div class="honesty-box">
+      <h3>Uma coisa que não vou fazer: depoimentos fabricados.</h3>
+      <p>Este protocolo está em lançamento. Não tenho dezenas de prints de clientes para mostrar — ainda. O que tenho é a neurociência que o sustenta, um protocolo estruturado em cima dela, e uma garantia de 21 dias que transfere 100% do risco para mim.</p>
+      <p>Se o protocolo funcionar, você vai querer deixar seu resultado. Se não funcionar, você recebe tudo de volta. É assim que construo confiança quando não posso usar histórias de terceiros — entrego o produto e deixo que você julgue.</p>
+    </div>
+
+    <div class="timeline-results">
+      <div class="timeline-item">
+        <span class="week">Semana 1</span>
+        <p>Redução perceptível na resistência a tarefas importantes</p>
+      </div>
+      <div class="timeline-item">
+        <span class="week">Semana 2</span>
+        <p>Aumento significativo na capacidade de foco sustentado</p>
+      </div>
+      <div class="timeline-item">
+        <span class="week">Semana 3</span>
+        <p>Execução começando a se tornar resposta automática</p>
+      </div>
+      <div class="timeline-item">
+        <span class="week">Dia 22+</span>
+        <p>Manutenção e fortalecimento contínuo dos novos padrões</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 6 — MÓDULOS
+═══════════════════════════════════════════ -->
+<section class="bg-ink" id="produto">
+  <div class="container">
+    <span class="section-label">O que está incluído</span>
+    <h2 class="section-title">Aqui Está Tudo Incluído no<br><em>Protocolo NeuroReversão 3.0™</em></h2>
+
+    <div class="module-stack">
+      <div class="module-item">
+        <div class="module-badge"><span class="m-num">M</span><span class="m-n">1</span></div>
+        <div class="module-content">
+          <div class="module-meta">
+            <span class="module-period">Dias 1–7</span>
+            <span class="module-time">15 min/dia</span>
+          </div>
+          <h3>Detox Neural Completo</h3>
+          <ul>
+            <li>O protocolo de 7 dias que elimina aquele "peso familiar" antes de você ter chance de procrastinar</li>
+            <li>A sequência de Reset Dopaminérgico que quebra o ciclo de distração no momento em que ele começa</li>
+            <li>Como reorganizar seu ambiente para que ele trabalhe a seu favor — sem precisar de força de vontade</li>
+            <li>O método que identifica qual sabotador interno específico está operando no seu caso</li>
+            <li>A rotina matinal que coloca seu cérebro em modo de execução antes de você abrir o email</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-badge"><span class="m-num">M</span><span class="m-n">2</span></div>
+        <div class="module-content">
+          <div class="module-meta">
+            <span class="module-period">Dias 8–14</span>
+            <span class="module-time">20 min/dia</span>
+          </div>
+          <h3>Reconstrução Dopaminérgica</h3>
+          <ul>
+            <li>A Sequência de Reativação Dopaminérgica que faz seu cérebro começar a antecipar tarefas importantes com prazer</li>
+            <li>Os protocolos que invertem a bússola interna do seu sistema de recompensa</li>
+            <li>Como amplificar a satisfação de completar uma tarefa a ponto de querer repetir o comportamento</li>
+            <li>O sistema que instala novos atalhos de prazer associados à execução — sem exigir esforço consciente</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-badge"><span class="m-num">M</span><span class="m-n">3</span></div>
+        <div class="module-content">
+          <div class="module-meta">
+            <span class="module-period">Dias 15–21</span>
+            <span class="module-time">10 min/dia</span>
+          </div>
+          <h3>Instalação de Automatismos</h3>
+          <ul>
+            <li>O framework que transforma "eu preciso fazer isso" em "eu simplesmente faço"</li>
+            <li>As técnicas que ancoram o comportamento de iniciar tarefas a gatilhos já existentes na sua rotina</li>
+            <li>Como fazer a urgência de agir surgir automaticamente — como impulso interno, não pressão externa</li>
+            <li>O método que reduz progressivamente a resistência interna até ela deixar de existir como obstáculo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="module-item">
+        <div class="module-badge"><span class="m-num">M</span><span class="m-n">4</span></div>
+        <div class="module-content">
+          <div class="module-meta">
+            <span class="module-period">Dia 22+</span>
+            <span class="module-time">10 min/dia</span>
+          </div>
+          <h3>Manutenção Perpétua</h3>
+          <ul>
+            <li>O protocolo de 10 minutos que você vai querer manter não por obrigação, mas porque vai notar a diferença</li>
+            <li>Como identificar os primeiros sinais de que um padrão antigo está tentando voltar</li>
+            <li>O método que expande gradualmente sua capacidade produtiva sem que você perceba o esforço</li>
+            <li>Como manter os novos circuitos ativos mesmo em semanas de alta pressão ou ruptura de rotina</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="unlock-schedule">
+      <h3>Cronograma de Desbloqueio</h3>
+      <div class="unlock-item">
+        <span class="unlock-badge green">Acesso Imediato</span>
+        <p>Módulo 1 + Módulo 2 + Bônus #1 + Bônus #2</p>
+      </div>
+      <div class="unlock-item">
+        <span class="unlock-badge">Dia 15</span>
+        <p>Módulo 3: Instalação de Automatismos — desbloqueado automaticamente</p>
+      </div>
+      <div class="unlock-item">
+        <span class="unlock-badge">Dia 22</span>
+        <p>Módulo 4: Manutenção Perpétua — início da fase de consolidação</p>
+      </div>
+      <p style="margin-top:16px; font-size:13px; color:var(--text-cream-3); font-style:italic;"><strong style="color:var(--text-cream-2);">Por que o M4 começa no Dia 22?</strong> Os 21 dias constroem os circuitos. O M4 os fortalece. Ativar a manutenção antes de completar o protocolo seria como aplicar a última camada antes da anterior secar — o resultado não se sustenta. Cada módulo é liberado quando o cérebro está preparado para recebê-lo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 7 — BÔNUS
+═══════════════════════════════════════════ -->
+<section class="bg-paper">
+  <div class="container">
+    <span class="section-label">Incluído hoje</span>
+    <h2 class="section-title">Quando Você Acessar Hoje, Receberá Também<br><em>Estes 2 Bônus no Valor de R$164</em></h2>
+
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-label">🎁 Bônus #1</div>
+        <h3>Matriz de Priorização Cerebral</h3>
+        <p>O mapa mental proprietário que identifica instantaneamente quais tarefas ativar primeiro baseado no seu perfil neuroquímico individual.</p>
+        <ul>
+          <li>Algoritmo de priorização baseado em neurociência comportamental</li>
+          <li>Sistema de pontuação por impacto e custo de energia mental</li>
+          <li>Templates para diferentes perfis de procrastinação</li>
+          <li>Método de identificação do seu padrão dopaminérgico dominante</li>
+          <li>Estratégias personalizadas por tipo de tarefa</li>
+        </ul>
+        <div class="bonus-value">Valor: R$97 — Incluído no Protocolo</div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-label">🎁 Bônus #2</div>
+        <h3>Kit de Emergência Anti-Procrastinação</h3>
+        <p>7 protocolos de 3 minutos para quebrar episódios agudos de procrastinação em tempo real. Para os momentos em que a resistência aparece.</p>
+        <ul>
+          <li>Técnica do "Reset Neural Instantâneo"</li>
+          <li>Protocolo de Emergência 3-2-1</li>
+          <li>Método de "Bypass da Resistência"</li>
+          <li>Estratégia do "Momentum Inicial"</li>
+          <li>Técnica de "Quebra de Padrão Mental"</li>
+          <li>Sistema SOS Anti-Procrastinação</li>
+          <li>Protocolo de Reativação Imediata</li>
+        </ul>
+        <div class="bonus-value">Valor: R$67 — Incluído no Protocolo</div>
+      </div>
+    </div>
+
+    <div class="summary-box">
+      <h3>Tudo incluído no seu acesso:</h3>
+      <ul class="summary-list">
+        <li><span class="chk">✓</span>Módulo 1 — Detox Neural <span class="meta">Dias 1–7 · 15 min/dia</span></li>
+        <li><span class="chk">✓</span>Módulo 2 — Reconstrução Dopaminérgica <span class="meta">Dias 8–14 · 20 min/dia</span></li>
+        <li><span class="chk">✓</span>Módulo 3 — Instalação de Automatismos <span class="meta">Dias 15–21 · 10 min/dia</span></li>
+        <li><span class="chk">✓</span>Módulo 4 — Manutenção Perpétua <span class="meta">Dia 22+ · 10 min/dia</span></li>
+        <li><span class="gift">🎁</span>Bônus #1 — Matriz de Priorização Cerebral</li>
+        <li><span class="gift">🎁</span>Bônus #2 — Kit de Emergência Anti-Procrastinação</li>
+      </ul>
+      <div class="summary-total">
+        <span>Investimento único</span>
+        <span>R$47,90</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 8 — GARANTIA
+═══════════════════════════════════════════ -->
+<section class="bg-forest">
+  <div class="container">
+    <span class="section-label">Sem risco</span>
+    <h2 class="section-title" style="margin-bottom:32px;">Garantia de 21 Dias — Resultado Real<br>ou Dinheiro de Volta. Sem Pegadinhas.</h2>
+
+    <div class="guarantee-box">
+      <div class="guarantee-icon">🛡️</div>
+      <div class="guarantee-content">
+        <h3>A garantia não é sobre o produto. É sobre você.</h3>
+        <p>Sei o que está passando pela sua cabeça agora: <em>"E se eu comprar e abandonar no Dia 3?"</em> Essa dúvida — sobre você mesmo, não sobre o protocolo — é a objeção real de quem já tentou muitas coisas antes.</p>
+        <p>Por isso a garantia existe. Aplique o Protocolo NeuroReversão 3.0™ pelos 21 dias completos. Se ao final não sentir uma transformação real e mensurável — envie um email e devolvemos <strong>100% do seu investimento</strong>. Sem perguntas. Sem burocracia.</p>
+        <p><strong>E você fica com todos os módulos e bônus</strong> — porque se chegou ao Dia 21, o protocolo já funcionou. E se não chegou, não é minha missão punir sua tentativa honesta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 9 — OFERTA + PREÇO
+═══════════════════════════════════════════ -->
+<section class="bg-ink" id="oferta">
+  <div class="container">
+    <span class="section-label">Seu investimento</span>
+    <h2 class="section-title" style="text-align:center; margin-bottom:8px;">Seu Investimento na Eliminação Definitiva da Procrastinação</h2>
+    <p style="color:var(--text-cream-2); text-align:center; margin-bottom:40px;">Vamos falar sobre o que está realmente em jogo</p>
+
+    <div class="price-box">
+      <div class="price-label">Acesso completo ao protocolo</div>
+      <div class="price-old">R$197</div>
+      <div class="price-main">R$47,90</div>
+      <div class="price-installments">ou 12x de R$3,99 no cartão</div>
+
+      <div class="payment-options">
+        <div class="payment-opt"><span class="check">✓</span> Pagamento Único R$47,90</div>
+        <div class="payment-opt"><span class="check">✓</span> 12x de R$3,99</div>
+        <div class="payment-opt"><span class="check">✓</span> PIX</div>
+      </div>
+
+      <a href="https://pay.kiwify.com.br/2K71xCm" class="cta-btn full" target="_blank">COMEÇAR OS 21 DIAS AGORA</a>
+      <p class="cta-sub" style="margin-top:10px; color:var(--text-cream-2);">15 min/dia. Sem pré-requisitos. Pode começar hoje à noite.</p>
+      <p class="cta-sub" style="margin-top:6px;"><span>🔒 Pagamento 100% seguro</span> · SSL 256-bits</p>
+
+      <div class="trust-badges">
+        <span class="trust-badge">🛡️ Garantia 21 dias</span>
+        <span class="trust-badge">📱 Acesso imediato</span>
+        <span class="trust-badge">♾️ Acesso vitalício</span>
+      </div>
+    </div>
+
+    <p style="color:var(--text-cream-2); text-align:center; font-size:15px; margin-top:32px; max-width:560px; margin-left:auto; margin-right:auto;">R$47,90 ÷ 21 dias = <strong style="color:var(--text-cream)">R$2,28 por dia.</strong> Você perde mais que isso em 2 dias de procrastinação — se sua hora vale R$25.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 10 — CUSTO DA INAÇÃO
+═══════════════════════════════════════════ -->
+<section class="bg-paper">
+  <div class="container">
+    <span class="section-label" style="color:#B54A4A;">Custo da inação</span>
+    <h2 class="section-title">Cada Dia Que Você Espera, o Prejuízo Continua</h2>
+    <p style="color:var(--text-mid); margin-bottom:8px;">Não existe cronômetro nesta página. Não vou te pressionar com contador falso ou bônus que "desaparecem".</p>
+    <p style="color:var(--text-mid); margin-bottom:32px;">Mas você provavelmente já sabe — e ainda não calculou em números reais.</p>
+
+    <div class="inaction-calc">
+      <h3>Faça o seu cálculo (1 hora/dia de procrastinação):</h3>
+      <div class="calc-row"><span class="label">Por dia</span><span class="value">R$25–50 perdidos</span></div>
+      <div class="calc-row"><span class="label">Por mês</span><span class="value">R$500–1.000 desperdiçados</span></div>
+      <div class="calc-row"><span class="label">Por ano</span><span class="value">R$6.000–12.000 que poderiam estar na sua conta</span></div>
+      <div class="calc-row" style="margin-top:12px;"><span class="label" style="color:var(--text-ink); font-weight:600;">O Protocolo NeuroReversão 3.0™ custa</span><span class="value green">R$47,90</span></div>
+    </div>
+
+    <p style="color:var(--text-mid); margin-bottom:8px;">Você está gastando mais que isso em prejuízo de produtividade <strong style="color:var(--text-ink)">a cada 2 dias de procrastinação.</strong></p>
+    <p style="color:var(--text-mid);">A decisão de não agir hoje não é gratuita. Ela tem um preço — e você já está pagando.</p>
+
+    <p style="color:#B54A4A; font-family:'Montserrat',sans-serif; font-weight:700; font-size:16px; margin-top:20px; text-align:center; line-height:1.6;">Cada semana que passa = R$125–250 a mais em produtividade perdida.<br><span style="color:var(--text-muted); font-family:'Inter',sans-serif; font-weight:400; font-size:13px;">O protocolo inteiro custa R$47,90. Uma semana de inação custa mais.</span></p>
+
+    <div style="text-align:center; margin-top:36px;">
+      <a href="https://pay.kiwify.com.br/2K71xCm" class="cta-btn" target="_blank">SIM — QUERO PARAR DE PERDER AGORA</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 11 — FAQ
+═══════════════════════════════════════════ -->
+<section class="bg-paper2">
+  <div class="container">
+    <span class="section-label">Perguntas frequentes</span>
+    <h2 class="section-title" style="margin-bottom:8px;">Perguntas Frequentes</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Quão rapidamente verei resultados? <span class="faq-icon">+</span></div>
+        <div class="faq-a">A resistência a tarefas começa a diminuir na primeira semana — não porque você ficou "mais motivado", mas porque o protocolo está quebrando os circuitos que geram essa resistência. Aos 21 dias, a execução começa a ser automática. O que determina a velocidade é a consistência de aplicação, não o esforço.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Isso funcionará na minha situação específica? <span class="faq-icon">+</span></div>
+        <div class="faq-a">O protocolo atua sobre o sistema dopaminérgico — que funciona da mesma forma em gerentes, empreendedores, estudantes e profissionais liberais. Não existe "tipo de pessoa para quem não funciona". Existe pessoa que aplica e pessoa que não aplica. O Bônus #1 adapta o protocolo ao seu perfil neuroquímico específico.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como isso é diferente de outros métodos? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Simples: os outros métodos exigem que você use força de vontade para funcionar. Listas, timers, apps — todos dependem de você decidir usar. Quando o circuito muda, você não precisa mais decidir — a execução acontece como resposta automática. É a diferença entre empurrar uma pedra morro acima todos os dias e mudar a inclinação do morro.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">E se eu for procrastinador demais para até começar? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Esse é exatamente o perfil para quem o protocolo foi construído. O Módulo 1 começa com 15 minutos de baixíssima fricção — projetado especificamente para quebrar a resistência inicial. O Bônus #2 tem 7 protocolos de 3 minutos para usar quando a resistência aparecer no meio do processo. Não existe "procrastinador demais" — existe ponto de entrada errado.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Quanto tempo por dia preciso dedicar? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Semana 1 e 2: 15–20 minutos. Semana 3: 10 minutos. Semana 4 em diante: manutenção de 10 minutos quando necessário. Você provavelmente passa mais tempo que isso olhando para uma tarefa sem começar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">E se não funcionar para mim? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Você tem 21 dias de garantia total. Aplique o protocolo de boa-fé — siga os módulos, aplique as sequências. Se ao final não sentir transformação real e mensurável, devolvo 100% sem perguntas e você fica com todo o material. A garantia existe para quem tenta com seriedade, não para quem compra e não abre.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Os resultados são permanentes? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Sim. O protocolo trabalha com neuroplasticidade real — mudanças nas conexões neurais, não na motivação. Assim como aprender a andar de bicicleta não "desaparece", os novos circuitos se mantêm. O Módulo 4 existe para fortalecer e consolidar esses padrões indefinidamente.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 12 — SOBRE O PROTOCOLO
+═══════════════════════════════════════════ -->
+<section class="bg-paper">
+  <div class="container">
+    <span class="section-label">Por que existe</span>
+    <h2 class="section-title" style="margin-bottom:28px;">Por Que o Protocolo NeuroReversão 3.0™ Existe</h2>
+
+    <p style="color:var(--text-mid); margin-bottom:20px;">Existe uma classe específica de problema que a indústria de produtividade nunca resolveu.</p>
+    <p style="color:var(--text-mid); margin-bottom:20px;">Não por falta de tentativa. Por falta de diagnóstico correto.</p>
+    <p style="color:var(--text-mid); margin-bottom:20px;">Listas de tarefas resolvem organização. Apps resolvem lembretes. Coaching resolve motivação momentânea.</p>
+    <p style="color:var(--text-mid); margin-bottom:28px;">Nenhum resolve o que faz <strong style="color:var(--text-ink)">seu</strong> cérebro preferir distração a execução quando você tem todo o contexto, toda a competência, e toda a intenção de fazer a coisa certa.</p>
+
+    <div class="protocol-box">
+      <h3>Esse problema tem nome preciso: desequilíbrio dopaminérgico.</h3>
+      <p>Não é metáfora. É um estado neurológico mensurável — estudado por pesquisadores como Wolfram Schultz (Cambridge) e Kent Berridge (Michigan) — onde o sistema de recompensa foi calibrado para buscar estímulos rápidos em detrimento do que realmente importa.</p>
+      <p>O protocolo existe porque a solução para esse problema específico não é comportamental. É neurológica.</p>
+      <p>21 dias de sequências estruturadas. Protocolo específico para cada fase da recalibração. <strong>Baseado nos mecanismos que a neurociência documenta — não em motivação que evapora na segunda-feira.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOLD 13 — FECHAMENTO FINAL
+═══════════════════════════════════════════ -->
+<section class="bg-ink">
+  <div class="container">
+    <span class="section-label" style="text-align:center; display:block; color:var(--gold);">Sua decisão</span>
+    <h2 class="section-title" style="text-align:center; margin-bottom:32px;">Você Está Numa Encruzilhada Agora</h2>
+
+    <div class="fork-grid">
+      <div class="fork-card bad">
+        <h3>Caminho 1 — A Inação</h3>
+        <ul>
+          <li>Você fecha esta página e volta ao que estava fazendo</li>
+          <li>Continua prometendo que vai mudar</li>
+          <li>Continua adiando as tarefas importantes</li>
+          <li>Em 21 dias, exatamente onde está agora</li>
+          <li>Mesmas lutas. Mesmas noites de culpa. Mesmo ciclo.</li>
+        </ul>
+      </div>
+      <div class="fork-card good">
+        <h3>Caminho 2 — A Recalibração</h3>
+        <ul>
+          <li>Você toma uma decisão baseada em evidência</li>
+          <li>Investe 21 dias em um protocolo estruturado</li>
+          <li>Deixa a neurociência fazer o que força de vontade nunca conseguiu</li>
+          <li>Em 21 dias, execução começa a ser automática</li>
+          <li>A resistência diminuiu. As tarefas que você adiava estão sendo feitas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="vision-final">
+      <p>É uma terça-feira de manhã. Você abre seu laptop e, sem esforço consciente, vai direto para a tarefa mais importante do dia.</p>
+      <p>Sem resistência. Sem negociação interna. Sem procrastinação.</p>
+      <p>Às 12h, você completou o que normalmente levaria o dia inteiro. A agenda está em dia.</p>
+      <p><strong>Isso não é promessa vazia. É o resultado de 21 dias de recalibração neural — o que o protocolo foi projetado para produzir.</strong></p>
+    </div>
+
+    <div class="final-cta-block">
+      <p style="color:var(--text-cream-2); margin-bottom:28px; font-size:18px;">A única coisa entre você e esse resultado é uma decisão.</p>
+      <a href="https://pay.kiwify.com.br/2K71xCm" class="cta-btn" target="_blank">SIM — ESCOLHO RECALIBRAR MEU CÉREBRO</a>
+      <p class="cta-sub" style="margin-top:10px; color:var(--text-cream-2);">15 min/dia. Sem pré-requisitos. Pode começar hoje à noite.</p>
+      <p class="cta-sub" style="margin-top:6px; color:var(--text-cream-3);">Começar os 21 Dias Agora — R$47,90</p>
+      <p style="color:var(--text-cream-3); font-size:12px; margin-top:8px;">
+        <a href="#" style="color:var(--text-cream-3); text-decoration:underline;">Não, obrigado — vou continuar como estou</a>
+      </p>
+    </div>
+
+    <div class="ps-block">
+      <p><em>P.S. — Você tem 21 dias de garantia total. Zero risco. Se aplicar o protocolo completo e não sentir transformação real, devolvo 100% e você fica com todo o material.</em></p>
+      <p><em>P.P.S. — Cada dia que passa sem agir, o custo da inação continua. Não existe momento perfeito para parar de procrastinar — existe o momento em que você decide que já chega.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 Protocolo NeuroReversão 3.0™ · Todos os direitos reservados</p>
+    <p><a href="#">Política de Privacidade</a> &nbsp;·&nbsp; <a href="#">Termos de Uso</a> &nbsp;·&nbsp; <a href="#">Contato</a></p>
+    <p style="margin-top:12px; font-size:11px; max-width:600px; margin-left:auto; margin-right:auto;">
+      Os resultados apresentados variam conforme a consistência de aplicação do protocolo. Este produto é para fins educacionais e de desenvolvimento pessoal. Não substitui diagnóstico ou tratamento médico.
+    </p>
+  </div>
+</footer>
+
+<!-- STICKY CTA BAR (aparece após scroll) -->
+<div class="sticky-cta">
+  <p><strong>NeuroReversão 3.0™</strong> — R$47,90 · Garantia 21 dias</p>
+  <a href="https://pay.kiwify.com.br/2K71xCm" class="cta-btn" target="_blank">Acessar por R$47,90</a>
+</div>
+
+<script>
+  // ── FAQ ACCORDION ──────────────────────────
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = this.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── STICKY CTA — aparece após scroll do mecanismo ──
+  var stickyCta   = document.querySelector('.sticky-cta');
+  var triggerEl   = document.getElementById('mecanismo');
+  var triggered   = false;
+
+  window.addEventListener('scroll', function() {
+    if (triggered || !stickyCta) return;
+    var shouldShow = triggerEl
+      ? triggerEl.getBoundingClientRect().bottom < 0
+      : (window.scrollY / (document.body.scrollHeight - window.innerHeight)) > 0.38;
+    if (shouldShow) {
+      triggered = true;
+      stickyCta.classList.add('visible');
+    }
+  }, { passive: true });
+</script>
+
+</body>
+</html>
